@@ -1,4 +1,4 @@
-# hackathonproject
+# ClassCord
 Discord is an underrated platform for conducting online classes even though it has many features which make it the perfect choice to conduct classes that other services like Microsoft Teams and Zoom do not have. We created this bot with the hope that schools might lean towards discord since it is free and easy to use and if there is a system in place to manage classroom activities, it would be easy for teachers to conduct classes here.
 
 This project was started by Arjun Sodhi, Balpreet Juneja, Sammarth Kumar and Tanmay Garg and is licensed under a MIT License.
