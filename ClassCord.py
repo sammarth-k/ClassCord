@@ -19,12 +19,12 @@ meetings_li = [[]]
 assignments = []
 server = None
 scheduling = False
+
 def from_hour_min(string_t):
     curr = datetime.strptime(string_t, "%H:%M")
     now_time = datetime.now().replace(hour=curr.hour, minute=curr.minute, second=0)
     return now_time
 
-prefix = '$'
 @bot.event
 async def on_message(message):
     global scheduling
@@ -145,22 +145,23 @@ homework.start()
 
 
 attendees = []
+
 @bot.command()
 async def quiz(message, *args):
-
     students = []
     channels = bot.get_all_channels()
+
     for channel in channels:
         if channel.name == args[0]:
             for user in channel.voice_states.keys():
-                kid = await bot.fetch_user(int(user))
-                attendees.append(kid.id)
-    async for member in server.fetch_members():
-        print(str(member))
-        print(type(attendees[0]))
-        if member.id in attendees:
-            print('hallo')
-            students.append(member)
+                attendees.append(int(user))
+
+    for member in server.members:
+        for role in member.roles: 
+            if role.name == "student":
+                if member.id in attendees:
+                    students.append(member)
+
     student = random.choice(students)
     await message.channel.send(student.mention)
 
@@ -191,7 +192,6 @@ async def cw(message, *args):
     print(title, "assigned")
     assignments = cw_list + hw_li
     submissions[title] = []
-
 
 
 # DD-MM-YYYY HH
@@ -329,8 +329,5 @@ async def due(message, work_arg):
 
     else:
         await message.send("Invalid argument received! Pass 'cw' or 'hw' instead...")
-
-
-
 
 bot.run(TOKEN)
