@@ -5,4 +5,4 @@ This project was started by Arjun Sodhi, Balpreet Juneja, Sammarth Kumar and Tan
 
 This is an Open-Source project and you can modify your copy of the code however you want. If you have any suggestions or want to collaborate on new feautres/contribute to existing ones, you can feel free to fork the repository and we will look at your code!
 
-All of our docs are available at https://classcord.netlify.app
+All of our docs are available at https://classcord.netlify.app which is accessible on all devices
